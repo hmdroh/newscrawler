@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/webcrawler");
-
+// mongoose.connect("mongodb://localhost/webcrawler");
+mongoose.connect("mongodb://webcrawler:webcrawler@ds217360.mlab.com:17360/webcrawler");
 // Routes
 // Import routes and give the server access to them.
 var routes = require("./controller/html-routs.js");
