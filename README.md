@@ -26,3 +26,4 @@ File | readme.md| Readme file.
 
 
 # Heroko Deployed Example:
+https://newscr.herokuapp.com/
