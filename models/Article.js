@@ -11,10 +11,10 @@ var ArticleSchema = new Schema({
     URL: {
         type: String
     },
-    comment: {
+    comment: [{
         type: Schema.Types.ObjectId,
         ref: "Comment"
-    },
+    }],
     isSaved:{
         type: Boolean,
         default: false

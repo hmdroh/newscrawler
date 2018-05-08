@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var CommentSchema = new Schema({
-    Comment: {
+    comment: {
         type: String,
         require: true
     },

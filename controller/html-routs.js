@@ -20,10 +20,34 @@ router.get("/showAll", function(req,res){
     })
 });
 
+router.get("/showWithComment/:id", function(req,res){
+    db.Article.findById({_id: req.params.id})
+    .populate("comment")
+    .then(function(data){
+        res.json(data);
+    })
+});
+
 router.get("/showSaved", function(req,res){
     db.Article.find({isSaved: true}).then(function(data){
         res.json(data);
     })
+});
+
+router.post("/savecomment", function(req,res){
+    var comment = req.body.comment;
+    var articleId = req.body.id;
+    //save comment
+        db.UserComment.create({comment: comment }).then(function(entry){
+            var commentId = entry._id;
+
+            db.Article.findOneAndUpdate({_id: articleId}, { $push: { "comment": commentId }}, {new:true}).then(function(data){
+                
+            })
+        })
+    //get id from comment
+    res.end(true);
+    //save it in the article comment db
 });
 
 router.get("/save/:id", function(req,res){
